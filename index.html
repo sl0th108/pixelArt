@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Pixel Art Maker!</title>
+  <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" />
+  <link rel="uploads">
+</head>
+
+<body>
+
+
+  <div class="share-btn-container">
+    <a href="#" class="facebook-btn">
+      <i class="fab fa-facebook"></i>
+    </a>
+
+    <a href="#" class="twitter-btn">
+      <i class="fab fa-twitter"></i>
+    </a>
+
+    <a href="#" class="pin-btn">
+      <i class="fab fa-pinterest"></i>
+    </a>
+
+    <a href="#" class="linked-btn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <h2>My Pixle</h2>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="navbar-brand">
+              <form id="sizePicker">
+                <h4>&nbsp;</h4>&nbsp;&nbsp;
+                Height:
+                <input type="number" id="inputHeight" name="height" min="1" value="10">
+                &nbsp;
+                Width:
+                <input type="number" id="inputWidth" name="width" min="1" value="10">
+                <input type="submit" id="submitButton">
+              </form>
+            </a>
+          </li>
+          <li class="nav-item">
+            <h4>&nbsp;</h4>&nbsp;&nbsp; <input type="color" id="colorPicker">
+          </li>
+          <li class="nav-item">
+            <h4>&nbsp;</h4>&nbsp;&nbsp; 
+            <button class="palette-button1">&nbsp</button>
+            <button class="palette-button2">&nbsp</button>
+            <button class="palette-button3">&nbsp</button>
+            <button class="palette-button4">&nbsp</button>
+            <button class="palette-button5">&nbsp</button>
+          </li>
+          <li class="nav-item">
+            <h4>&nbsp;</h4>&nbsp;&nbsp; <button class="fill-button">fill</button>
+          </li>
+          <li class="nav-item">
+            <h4>&nbsp;</h4>&nbsp;&nbsp; <button class="save-button">save</button>
+          </li>
+          <li class="nav-item">
+            <h4>&nbsp;</h4>&nbsp;&nbsp; <button class="load-button">load</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <h3><button onclick="doCapture()">save image</button></h3>
+
+  <div class="container">
+    <table id="Canvas"></table>
+  </div>
+
+  <script src="html2canvas.js"></script>
+  <script>
+    function doCapture() {
+      html2canvas(document.getElementById("Canvas")).then(function (canvas) {
+        var gh = (canvas.toDataURL('/uploads/jpg'));
+
+        var a = document.createElement('a');
+        a.href = gh;
+        a.download = 'image.jpg';
+
+        a.click()
+      });
+    }
+  </script>
+
+  <script src="grid.js"></script>
+
+</body>
+
+</html>
